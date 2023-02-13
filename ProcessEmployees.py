@@ -12,23 +12,40 @@ import csv
 
 #open the file
 
-
+infile = open("employee_data.csv", "r")
 
 
 #create an empty dictionary
 
+dict = {}
+new_dict = {}
 
 #use a loop to iterate through the csv file
+#check if the employee fits the search criteria
 
+with open("employee_data.csv", "r") as a:
 
-    #check if the employee fits the search criteria
+    reader = csv.reader(a)
 
+    for row in reader:
+        Department = row[3]
+        Title = row[4]
+        fname = row[1]
+        lname = row[2]
+        salary = float(row[5])
+
+        if Department == "Marketing":
+            if Title == "CSR":
+                key = fname, lname
+                dict[key] = salary,
+                new_sal = salary * 1.1
+                new_dict[key] = new_sal
 
     
 
-print()
+print(dict)
 print('=========================================')
-print()
+print(new_dict)
 
 #iternate through the dictionary and print out the key and value as per printout
 
@@ -39,3 +56,5 @@ print()
 
         
     
+
+
